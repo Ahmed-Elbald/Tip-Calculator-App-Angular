@@ -1,0 +1,51 @@
+@use "./styles/mixins" as *;
+
+main {
+  padding-top: 2rem;
+  background-color: hsl(var(--clr-neu-300));
+
+  @include min-mq(768px) {
+    position: relative;
+    min-height: 100vh;
+    padding-block: 9rem;
+    @include flex-centering();
+  }
+}
+
+.calculator-frame {
+  position: relative;
+
+  .page-heading {
+    margin-bottom: 2rem;
+    line-height: 1.25;
+    letter-spacing: 5px;
+    font-size: var(--fs-600);
+    text-align: center;
+    text-transform: uppercase;
+    @include min-mq(768px) {
+      margin-bottom: 0;
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 2rem);
+      transform: translateX(-50%);
+    }
+  }
+
+  .calculator {
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    background-color: hsl(var(--clr-neu-100));
+
+    @include min-mq(768px) {
+      display: flex;
+      column-gap: 2em;
+      max-width: 90%;
+      margin-inline: auto;
+
+      > * {
+        width: 100%;
+        flex: 1 0 0%;
+      }
+    }
+  }
+}

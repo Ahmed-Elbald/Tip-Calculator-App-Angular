@@ -1,0 +1,31 @@
+<section *ngrxLet="vm$ as vm">
+
+    <dl>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <dt>
+                <span class="output">tip amount</span>
+                <span class="per">/person</span>
+            </dt>
+            <dd>
+                <output for="bill-input nop-input" form="tip-form">${{vm.tipPerPerson.toFixed(2)}}</output>
+            </dd>
+
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <dt>
+                <span class="output">total</span>
+                <span class="per">/person</span>
+            </dt>
+            <dd>
+                <output for="bill-input nop-input" form="tip-form">${{vm.totalPerPerson.toFixed(2)}}</output>
+            </dd>
+
+        </div>
+    </dl>
+
+    <button type="reset" form="tip-form" class="reset-btn text-uppercase d-block text-center">reset</button>
+
+
+</section>

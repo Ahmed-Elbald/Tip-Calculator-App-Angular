@@ -1,0 +1,30 @@
+@mixin flex-centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin position-centering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin min-mq($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-mq($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin minmax-mq($min-size, $max-size) {
+  @media (min-width: $min-size) and (max-width: $max-size) {
+    @content;
+  }
+}

@@ -1,0 +1,103 @@
+@use "./../../styles/mixins" as *;
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.form-group {
+  &__input-wrapper {
+    position: relative;
+    > div {
+      display: inline-flex;
+      position: absolute;
+      top: 50%;
+      left: 1em;
+      transform: translateY(-50%);
+      color: hsl(var(--clr-neu-400));
+    }
+  }
+
+  &__input {
+    --outlineClr: hsl(var(--clr-pr-500));
+    text-align: right;
+    background-color: hsl(var(--clr-neu-200));
+    width: 100%;
+    padding: 0.25em 0.375em;
+    border-radius: 0.25em;
+    font-size: var(--fs-600);
+    color: hsl(var(--clr-pr-700));
+    caret-color: hsl(var(--clr-neu-300));
+    transition-duration: 0.5s;
+  }
+}
+
+.invalid-input-msg {
+  font-size: clamp(var(--fs-100), var(--fs-100) + 0.125vw, var(--fs-400));
+  color: hsl(var(--clr-pr-400));
+}
+
+.listbox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5em 0.75em;
+
+  @include min-mq(768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &__option {
+    padding: 0.5em 2em;
+    border-radius: 0.25em;
+    color: white;
+    background-color: hsl(var(--clr-pr-700));
+    font-size: 1.125em;
+    text-align: center;
+    transition-duration: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: hsl(var(--clr-pr-500) / 0.375);
+      color: hsl(var(--clr-pr-700));
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &[aria-selected="true"] {
+      background-color: hsl(var(--clr-pr-500));
+      color: hsl(var(--clr-pr-700));
+    }
+
+    &--custom {
+      background-color: transparent;
+      padding: 0;
+
+      input {
+        --outlineClr: hsl(var(--clr-pr-500));
+        width: 100%;
+        height: 100%;
+        padding: 0.375em;
+        border-radius: 0.25em;
+        background-color: hsl(var(--clr-neu-200));
+        caret-color: hsl(var(--clr-neu-300));
+        text-align: right;
+
+        &:focus {
+          color: hsl(var(--clr-pr-700));
+        }
+
+        &::placeholder {
+          text-align: center;
+          font-family: "Space Mono", monospace;
+        }
+      }
+    }
+  }
+}

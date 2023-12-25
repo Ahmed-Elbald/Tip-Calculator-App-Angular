@@ -1,0 +1,50 @@
+@use "./../../styles/mixins" as *;
+
+section {
+  height: 100%;
+  border-radius: 1em;
+  background-color: hsl(var(--clr-pr-700));
+  padding: 1em;
+
+  @include max-mq(768px) {
+    margin-top: 1.5em;
+  }
+  @include min-mq(768px) {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  dt {
+    span {
+      display: block;
+
+      &.output {
+        color: hsl(var(--clr-neu-100));
+      }
+      &.per {
+        font-size: var(--fs-300);
+      }
+    }
+  }
+
+  dd {
+    color: hsl(var(--clr-pr-500));
+    font-size: var(--fs-700);
+  }
+
+  .reset-btn {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    background-color: hsl(var(--clr-pr-500));
+    color: hsl(var(--clr-pr-700));
+    text-align: center;
+    font-size: var(--fs-500);
+
+    &:hover {
+      background-color: hsl(172deg 96.21% 70.21%);
+    }
+  }
+}

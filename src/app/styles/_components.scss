@@ -1,0 +1,13 @@
+.input {
+  border: 2px solid transparent;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: hsl(var(--clr-pr-400));
+  }
+}
